@@ -146,4 +146,16 @@ public class AccommodationController {
         Pageable pageable = PageRequest.of(page, size);
         return ResponseEntity.ok(accommodationService.findActivityLogs(pageable));
     }
+
+    @GetMapping("/most-popular")
+    @Operation(summary = "Get most popular accommodations sorted by number of rentals descending")
+    public ResponseEntity<List<AccommodationPopularityDto>> findMostPopularAccommodations() {
+        return ResponseEntity.ok(accommodationService.findMostPopularAccommodations());
+    }
+
+    @GetMapping("/most-popular-hosts")
+    @Operation(summary = "Get most popular hosts sorted by number of rentals descending")
+    public ResponseEntity<List<HostPopularityDto>> findMostPopularHosts() {
+        return ResponseEntity.ok(accommodationService.findMostPopularHosts());
+    }
 }

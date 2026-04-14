@@ -31,7 +31,12 @@ public class RoomsRentedEventListener {
 
         // Save to activity_log table
         ActivityLog log = new ActivityLog();
+        log.setAccommodationId(accommodation.getId());
         log.setAccommodationName(accommodation.getName());
+        log.setHostId(accommodation.getHost().getId());
+        log.setHostFullName(
+                accommodation.getHost().getName() + " " + accommodation.getHost().getSurname()
+        );
         log.setEventTime(LocalDateTime.now());
         log.setEventType("ROOMS_RENTED");
         activityLogRepository.save(log);

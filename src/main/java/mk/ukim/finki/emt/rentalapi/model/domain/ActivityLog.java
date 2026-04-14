@@ -19,8 +19,19 @@ public class ActivityLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Accommodation ID for popularity
+    @Column(nullable = false)
+    private Long accommodationId;
+
     @Column(nullable = false)
     private String accommodationName;
+
+    // Host ID and full name used for popularity endpoints
+    @Column(nullable = false)
+    private Long hostId;
+
+    @Column(nullable = false)
+    private String hostFullName;
 
     @Column(nullable = false)
     private LocalDateTime eventTime;

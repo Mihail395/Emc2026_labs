@@ -68,4 +68,10 @@ public interface AccommodationService {
 
     // Find all activity logs that are stored in the table in the database with pagination
     Page<ActivityLog> findActivityLogs(Pageable pageable);
+
+    // Find the most popular accommodations sorted in descending order
+    List<AccommodationPopularityDto> findMostPopularAccommodations();
+
+    // Find the most popular hosts sorted in descending order (based on rents)
+    List<HostPopularityDto> findMostPopularHosts();
 }

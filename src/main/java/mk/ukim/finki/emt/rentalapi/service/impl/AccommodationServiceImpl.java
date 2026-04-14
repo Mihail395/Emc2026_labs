@@ -193,4 +193,14 @@ public class AccommodationServiceImpl implements AccommodationService {
     public Page<ActivityLog> findActivityLogs(Pageable pageable) {
         return activityLogRepository.findAllByOrderByEventTimeDesc(pageable);
     }
+
+    @Override
+    public List<AccommodationPopularityDto> findMostPopularAccommodations() {
+        return activityLogRepository.findMostPopularAccommodations();
+    }
+
+    @Override
+    public List<HostPopularityDto> findMostPopularHosts() {
+        return activityLogRepository.findMostPopularHosts();
+    }
 }
